@@ -2,12 +2,12 @@
   "env": {
     "node": true
   },
-  "extends": ["airbnb-base", "eslint:recommended", "plugin:node/recommended", "plugin:promise/recommended"],
+  "extends": ["airbnb-base", "eslint:recommended", "plugin:node/recommended", "plugin:promise/recommended", "plugin:import/errors", "plugin:prettier/recommended"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 8
   },
-  "plugins": ["json", "promise", "import"],
+  "plugins": ["json", "promise", "import", "prettier"],
   "rules": {
     "class-methods-use-this": 1,
     "import/no-extraneous-dependencies": 1,
@@ -42,5 +42,16 @@
     "node/prefer-global/process": ["error", "always"],
     "node/prefer-global/url-search-params": ["error", "always"],
     "node/prefer-global/url": ["error", "always"]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
   }
+
 }

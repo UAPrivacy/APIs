@@ -1,5 +1,5 @@
-import sites from './sites';
-import update from './update';
+// import sites from "./sites";
+// import update from "./update";
 
 // update();
 // sites();
