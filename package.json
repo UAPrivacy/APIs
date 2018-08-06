@@ -20,8 +20,12 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
+    "algorithmia": "^0.3.10",
     "babel-plugin-dotenv": "^0.1.1",
-    "dotenv": "^6.0.0"
+    "csv2": "^0.1.1",
+    "dotenv": "^6.0.0",
+    "request": "^2.87.0",
+    "unzip": "^0.1.11"
   },
   "private": true,
   "devDependencies": {
@@ -32,6 +36,10 @@
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-json": "^1.2.1",
+    "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^3.8.0"
+  },
+  "engines": {
+    "node": "10.7.0"
   }
 }

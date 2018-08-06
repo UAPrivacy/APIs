@@ -16,4 +16,3 @@ get('http://s3.amazonaws.com/alexa-static/top-1m.csv.zip')
       contentToWrite.push(data[1]);
     });
   });
-
