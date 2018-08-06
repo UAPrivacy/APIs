@@ -7,7 +7,7 @@
   "parserOptions": {
     "ecmaVersion": 8
   },
-  "plugins": ["json", "promise"],
+  "plugins": ["json", "promise", "import"],
   "rules": {
     "class-methods-use-this": 1,
     "import/no-extraneous-dependencies": 1,
