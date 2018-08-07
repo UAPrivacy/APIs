@@ -1,43 +1,37 @@
-import { createWriteStream } from 'fs';
-import { get } from 'request';
-import { Parse } from 'unzip';
+import { createWriteStream, createReadStream } from 'fs';
 import csv2 from 'csv2';
+import through2 from 'through2';
 import { join } from 'path';
+import { Readable } from 'stream';
 
-function writeToFile(arr) {
-  const fileName = join(__dirname, 'data', 'list-1m.json');
-  const file = createWriteStream(fileName);
-  file.on('finish', () => console.log(`writing to ${fileName} complete`));
-  file.on('error', function(err) {
-    throw err;
-  });
-  arr.forEach(function(v) {
-    file.write(v.join(', ') + '\n');
-  });
-  file.end();
-}
+const fileName = join(__dirname, 'data', 'list-1m');
 
-function fetch() {
-  return new Promise((resolve, reject) => {
-    const arr = [];
-    get('http://s3.amazonaws.com/alexa-static/top-1m.csv.zip')
-      .pipe(Parse())
-      .on('entry', entry => {
-        entry.pipe(csv2()).on('data', data => {
-          arr.push(data[1]);
-        });
+const arr = [];
+createReadStream(`${fileName}.csv`)
+  .pipe(csv2())
+  .pipe(
+    through2({ objectMode: true }, function(chunk, enc, callback) {
+      this.push({
+        Rank: chunk[0],
+        URL: chunk[1]
       });
-    if (arr.length === 0) {
-      reject(Error`unexpected empty array`);
-    } else {
-      resolve(arr);
-    }
+      callback();
+    })
+  )
+  .on('data', data => {
+    arr.push(data);
+  })
+  .on('end', () => {
+    console.log(`${arr.length} items in arr. Now writing...`);
+    const readStream = Readable({
+      read(size) {
+        this.push(JSON.stringify(arr));
+        this.push(null);
+      }
+    });
+    const writeStream = createWriteStream(`${fileName}.json`);
+    writeStream.on('finish', () =>
+      console.log(`writing to JSON file complete`)
+    );
+    readStream.pipe(writeStream);
   });
-}
-
-function main() {
-  fetch()
-    .then(arr => writeToFile(arr))
-    .catch(err => console.error(err));
-}
-main();
