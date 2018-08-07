@@ -4,10 +4,8 @@
     "description": "UAPrivacy Server: Highlighting the important bits of User Agreements & Privacy Policy for the website you are browsing.",
     "main": "index.js",
     "scripts": {
-        "build": "npm run clean && babel src -d dist --presets env",
-        "clean": "rm -rf dist/",
-        "serve": "node dist/",
-        "start": "babel-node --presets env"
+        "start": "babel-node --presets env src/index.js",
+        "clean": "rm -rf dist/"
     },
     "repository": {
         "type": "git",
@@ -23,8 +21,10 @@
         "algorithmia": "^0.3.10",
         "babel-plugin-dotenv": "^0.1.1",
         "csv2": "^0.1.1",
+        "csvtojson": "^2.0.8",
         "dotenv": "^6.0.0",
         "request": "^2.87.0",
+        "through2": "^2.0.3",
         "unzip": "^0.1.11"
     },
     "private": true,
