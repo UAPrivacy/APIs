@@ -71,7 +71,7 @@ const init = async () => {
       fetch(text, summarizeText),
       fetch(url, summarizeURL)
     ]);
-    console.log(`summary from text: ${summaryURL}`);
+    console.log(`summary from text: ${summaryURL}\n`);
     console.log(`summary from URL: ${summaryText}`);
   } catch (e) {
     console.error(e);
