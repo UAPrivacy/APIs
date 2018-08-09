@@ -1,18 +1,20 @@
 import axios from 'axios';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
 const SUMMARIZEBOT = '736c194ce5d840ddafebd2d46b43a839';
 
 async function summarizeText(text) {
   const endpoint = 'https://www.summarizebot.com/api/summarize';
-  //   const blob = new Blob([text], { type: 'application/octet-stream' });
-  const blob = Buffer.from([text]);
+  const blob = Buffer.from(text);
   const { data, status } = await axios.post(endpoint, blob, {
     params: {
       apiKey: SUMMARIZEBOT,
       size: 10,
       keywords: 10,
       fragments: 10,
-      language: 'English'
+      language: 'English',
+      filename: 'sampleText.txt'
     },
     headers: {
       'Content-Type': 'application/octet-stream'
@@ -60,16 +62,19 @@ const fetch = (param, summarizer) => {
   });
 };
 
-const init = async ({ url, text }) => {
-  const [summaryURL, summaryText] = await Promise.all([
-    // fetch(text, summarizeText),
-    fetch(url, summarizeURL)
-  ]).catch(err => console.error(err));
-
-  console.log(`summary from text: ${summaryURL}`);
-  console.log(`summary from URL: ${summaryText}`);
+const init = async () => {
+  const url =
+    'https://www.starwoodhotels.com/preferredguest/legal/privacy.html';
+  const text = readFileSync(join(__dirname, 'sampleText.txt'), 'utf8');
+  try {
+    const [summaryURL, summaryText] = await Promise.all([
+      fetch(text, summarizeText),
+      fetch(url, summarizeURL)
+    ]);
+    console.log(`summary from text: ${summaryURL}`);
+    console.log(`summary from URL: ${summaryText}`);
+  } catch (e) {
+    console.error(e);
+  }
 };
-
-const url = 'https://www.starwoodhotels.com/preferredguest/legal/privacy.html';
-const text = '';
-init({ url, text });
+init();
