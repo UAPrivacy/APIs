@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import summary from './summary';
+
+summary();
 
 const SUMMARIZEBOT = '736c194ce5d840ddafebd2d46b43a839';
 
@@ -77,4 +80,4 @@ const init = async () => {
     console.error(e);
   }
 };
-init();
+// init();
