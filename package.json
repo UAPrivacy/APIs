@@ -18,9 +18,7 @@
     },
     "license": "UNLICENSED",
     "dependencies": {
-        "axios": "^0.18.0",
-        "lodash": "^4.17.10",
-        "node-summary": "^1.2.0"
+        "axios": "^0.18.0"
     },
     "private": true,
     "devDependencies": {
