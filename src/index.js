@@ -80,4 +80,4 @@ const init = async () => {
     console.error(e);
   }
 };
-// init();
+init();
