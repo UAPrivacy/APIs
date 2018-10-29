@@ -68,7 +68,7 @@ const fetch = (param, summarizer) => {
 const init = async () => {
   const url =
     'https://www.starwoodhotels.com/preferredguest/legal/privacy.html';
-  const text = readFileSync(join(__dirname, 'sampleText.txt'), 'utf8');
+  const text = readFileSync(join(__dirname, 'text.txt'), 'utf8');
   try {
     const [summaryURL, summaryText] = await Promise.all([
       fetch(text, summarizeText),
