@@ -64,7 +64,7 @@ const fetch = (param, summarizer) => {
       .catch(err => reject(err));
   });
 };
-
+// TODO test performance time difference bwteeen URLS and TEXT fetched and intergrations
 const init = async () => {
   const url =
     'https://www.starwoodhotels.com/preferredguest/legal/privacy.html';
