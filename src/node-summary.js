@@ -1,25 +1,36 @@
-const SummaryTool = require('node-summary');
+const fs = require('fs');
+const util = require('util');
+const nodeSummary = require('node-summary');
 
-async function getText(filename) {}
-SummaryTool.summarize(title, content, function(err, summary) {
-  if (err) console.log('Something went wrong man!');
+const readFile = util.promisify(fs.readFile);
 
-  console.log(summary);
+async function getText(filename) {
+  return await readFile(filename);
+}
 
-  console.log('Original Length ' + (title.length + content.length));
-  console.log('Summary Length ' + summary.length);
-  console.log(
-    'Summary Ratio: ' +
-      (100 - 100 * (summary.length / (title.length + content.length)))
-  );
-});
-var url =
-  'https://www.forbes.com/sites/viviennedecker/2017/05/14/meet-the-23-year-old-innovating-the-nail-industry-with-static-nails/#4b48c203487d';
+function fetchWithContent() {
+  const content = getText('sample.txt');
+  const title = 'sample summaries';
+  nodeSummary.summarize(title, content, function(err, summary) {
+    if (err) console.error('Something went wrong!');
+    // console.log('Original Length ' + (title.length + content.length));
+    // console.log('Summary Length ' + summary.length);
+    console.log(
+      'Summary Ratio: ' +
+        (100 - 100 * (summary.length / (title.length + content.length)))
+    );
+  });
+}
 
-SummaryTool.summarizeFromUrl(url, function(err, summary) {
-  if (err) {
-    console.log('err is ', result);
-  } else {
-    console.log(summary);
-  }
-});
+function fetchWithURL(url) {
+  nodeSummary.summarizeFromUrl(url, function(err, summary) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(summary);
+    }
+  });
+}
+
+fetchWithContent();
+fetchWithURL('https://policies.google.com/terms');
