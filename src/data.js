@@ -15,24 +15,22 @@ const GOOGLE_URL = "https://policies.google.com/terms";
 const FACEBOOK_URL = "https://www.facebook.com/terms.php";
 const TWITTER_URL = "https://twitter.com/en/tos";
 
-const SAMPLES = [
+const SAMPLE_DATA = [
   {
-    name: "facebook",
+    website: "facebook",
     getText: getFacebookText,
     url: FACEBOOK_URL
   },
   {
-    name: "twitter",
+    website: "twitter",
     getText: getTwitterText,
     url: TWITTER_URL
   },
   {
-    name: "google",
+    website: "google",
     getText: getGoogleText,
     url: GOOGLE_URL
   }
 ];
 
-module.exports = {
-  SAMPLES
-};
+module.exports = SAMPLE_DATA;

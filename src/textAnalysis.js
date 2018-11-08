@@ -1,13 +1,12 @@
 const axios = require("axios");
-
-const { SAMPLES } = require("./utils");
+const SAMPLE_DATA = require("./data");
 const { MASHAPE } = require("./secrets.json");
 
 const ENDPOINT_URL =
   "https://textanalysis-text-summarization.p.mashape.com/text-summarizer";
 const SENT_NUM = 12;
 
-async function fetch({ url, text }, website) {
+async function fetch({ url = "", text = "" }, website, input) {
   const res = await axios.post(
     ENDPOINT_URL,
     {
@@ -23,20 +22,32 @@ async function fetch({ url, text }, website) {
       }
     }
   );
-  console.log(website);
+  console.log(`${website} > ${input}`);
   console.log(res.data.sentences);
 }
 
+function catchError(website, input, { response: { status, statusText } }) {
+  console.error(`${website} > ${input}`, status, statusText);
+}
+
+function wrapFetch(fetch, param, website, input) {
+  return fetch(param, website, input).catch(err =>
+    catchError(website, input, err)
+  );
+}
+
 async function main() {
-  try {
-    for (const { name, getText, url } of SAMPLES) {
-      await fetch({ url }, name);
-      const text = await getText();
-      await fetch({ text }, name);
-    }
-  } catch ({ response: { status, statusText, config } }) {
-    console.log(status, statusText, config.data);
-  }
+  const promises = SAMPLE_DATA.map(async ({ website, getText, url }) => {
+    const fetchText = wrapFetch(
+      fetch,
+      { text: await getText },
+      website,
+      "text"
+    );
+    const fetchURL = wrapFetch(fetch, { text: await getText }, website, "url");
+    return Promise.all([fetchText, fetchURL]);
+  });
+  await Promise.all(promises);
 }
 
 main();
