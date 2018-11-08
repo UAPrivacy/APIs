@@ -4,7 +4,7 @@
     "description": "UAPrivacy Server: Highlighting the important bits of User Agreements & Privacy Policy for the website you are browsing.",
     "main": "index.js",
     "scripts": {
-        "exec": "babel-node --presets env src/node-summary.js",
+        "exec": "babel-node --presets @babel/preset-env src/node-summary.js",
         "clean": "rm -rf dist/"
     },
     "repository": {
@@ -24,8 +24,10 @@
     },
     "private": true,
     "devDependencies": {
+        "@babel/cli": "^7.1.5",
         "@babel/core": "^7.1.5",
         "@babel/node": "^7.0.0",
+        "@babel/preset-env": "^7.1.5",
         "babel-cli": "^6.26.0",
         "babel-eslint": "^8.2.6",
         "babel-preset-env": "^1.7.0",
