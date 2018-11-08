@@ -230,7 +230,8 @@ For information about how to contact Google, please visit our contact page.
     print ""
     print "Original Length %s" % (len(title) + len(content))
     print "Summary Length %s" % len(summary)
-    print "Summary Ratio: %s" % (100 - (100 * (len(summary) / (len(title) + len(content)))))
+    print "Summary Ratio: %s" % (
+        100 - (100 * (len(summary) / (len(title) + len(content)))))
 
 
 if __name__ == '__main__':

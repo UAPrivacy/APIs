@@ -30,8 +30,11 @@ async function fetchAxios({ url, text }, context) {
 
 async function main() {
   try {
-    await fetchAxios({ text: await getSampleText() }, 'text');
-    await fetchAxios({ url: SAMPLE_URL }, 'URL');
+    // await fetchAxios({ text: await getSampleText() }, 'text');
+    await fetchAxios(
+      { url: 'http://en.wikipedia.org/wiki/Automatic_summarization' },
+      'URL'
+    );
   } catch (error) {
     console.log(error);
   }
