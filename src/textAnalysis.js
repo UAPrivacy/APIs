@@ -1,6 +1,6 @@
 const axios = require("axios");
 const SAMPLE_DATA = require("./data");
-const { MASHAPE } = require("./secrets.json");
+const { MASHAPE } = require("../secrets.json");
 
 const ENDPOINT_URL =
   "https://textanalysis-text-summarization.p.mashape.com/text-summarizer";
@@ -27,7 +27,8 @@ async function fetch({ url = "", text = "" }, website, input) {
 }
 
 function catchError(website, input, { response: { status, statusText } }) {
-  console.error(`${website} > ${input}`, status, statusText);
+  console.error(`${website} > ${input}`);
+  console.error(status, statusText);
 }
 
 function wrapFetch(fetch, param, website, input) {
@@ -38,19 +39,13 @@ function wrapFetch(fetch, param, website, input) {
 
 async function main() {
   const promises = SAMPLE_DATA.map(async ({ website, getText, url }) => {
-    const fetchText = wrapFetch(
-      fetch,
-      { text: await getText },
-      website,
-      "text"
-    );
-    const fetchURL = wrapFetch(fetch, { text: await getText }, website, "url");
+    const text = await getText;
+    const fetchText = wrapFetch(fetch, { text }, website, "text");
+    const fetchURL = wrapFetch(fetch, { url }, website, "url");
     return Promise.all([fetchText, fetchURL]);
   });
   await Promise.all(promises);
 }
-
-main();
 
 module.exports = {
   main,

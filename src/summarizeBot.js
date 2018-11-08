@@ -1,14 +1,14 @@
-import axios from 'axios';
-import { readFileSync } from 'fs';
-import { join } from 'path';
-import summary from './summary';
+import axios from "axios";
+import { readFileSync } from "fs";
+import { join } from "path";
+import summary from "./summary";
 
 summary();
 
-const SUMMARIZEBOT = '736c194ce5d840ddafebd2d46b43a839';
+const SUMMARIZEBOT = "736c194ce5d840ddafebd2d46b43a839";
 
 async function summarizeText(text) {
-  const endpoint = 'https://www.summarizebot.com/api/summarize';
+  const endpoint = "https://www.summarizebot.com/api/summarize";
   const blob = Buffer.from(text);
   const { data, status } = await axios.post(endpoint, blob, {
     params: {
@@ -16,11 +16,11 @@ async function summarizeText(text) {
       size: 10,
       keywords: 10,
       fragments: 10,
-      language: 'English',
-      filename: 'sampleText.txt'
+      language: "English",
+      filename: "sampleText.txt"
     },
     headers: {
-      'Content-Type': 'application/octet-stream'
+      "Content-Type": "application/octet-stream"
     }
   });
 
@@ -34,14 +34,14 @@ async function summarizeText(text) {
 }
 
 async function summarizeURL(url) {
-  const endpoint = 'https://www.summarizebot.com/api/summarize';
+  const endpoint = "https://www.summarizebot.com/api/summarize";
   const { data, status } = await axios.get(endpoint, {
     params: {
       apiKey: SUMMARIZEBOT,
       size: 10,
       keywords: 10,
       fragments: 10,
-      language: 'English',
+      language: "English",
       url
     }
   });
@@ -67,8 +67,8 @@ const fetch = (param, summarizer) => {
 // TODO test performance time difference bwteeen URLS and TEXT fetched and intergrations
 const init = async () => {
   const url =
-    'https://www.starwoodhotels.com/preferredguest/legal/privacy.html';
-  const text = readFileSync(join(__dirname, 'text.txt'), 'utf8');
+    "https://www.starwoodhotels.com/preferredguest/legal/privacy.html";
+  const text = readFileSync(join(__dirname, "text.txt"), "utf8");
   try {
     const [summaryURL, summaryText] = await Promise.all([
       fetch(text, summarizeText),
