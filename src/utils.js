@@ -5,7 +5,7 @@ const { join } = require("path");
 const readFile = util.promisify(fs.readFile);
 
 function read(filename) {
-  return readFile(join(__dirname, filename), "utf-8");
+  return readFile(join(__dirname, "textFiles", filename), "utf-8");
 }
 const getTwitterText = read("twitter.txt");
 const getGoogleText = read("google.txt");
@@ -15,20 +15,23 @@ const GOOGLE_URL = "https://policies.google.com/terms";
 const FACEBOOK_URL = "https://www.facebook.com/terms.php";
 const TWITTER_URL = "https://twitter.com/en/tos";
 
-const SAMPLES = {
-  facebook: {
-    text: getFacebookText,
+const SAMPLES = [
+  {
+    name: "facebook",
+    getText: getFacebookText,
     url: FACEBOOK_URL
   },
-  twitter: {
-    text: getTwitterText,
+  {
+    name: "twitter",
+    getText: getTwitterText,
     url: TWITTER_URL
   },
-  google: {
-    text: getGoogleText,
+  {
+    name: "google",
+    getText: getGoogleText,
     url: GOOGLE_URL
   }
-};
+];
 
 module.exports = {
   SAMPLES
