@@ -2,12 +2,6 @@ const fs = require('fs');
 const util = require('util');
 const nodeSummary = require('node-summary');
 
-const readFile = util.promisify(fs.readFile);
-
-async function getText(filename) {
-  return await readFile(filename);
-}
-
 function fetchWithContent() {
   const content = getText('sample.txt');
   const title = 'sample summaries';
