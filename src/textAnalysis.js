@@ -44,10 +44,8 @@ async function main() {
     const fetchURL = fetchWrapper(fetch, { url }, website, "url");
     return Promise.all([fetchText, fetchURL]);
   });
+  console.log("text analysis");
   await Promise.all(promises);
 }
 
-module.exports = {
-  main,
-  name: "text analysis"
-};
+module.exports = main;

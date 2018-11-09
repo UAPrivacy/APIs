@@ -24,7 +24,7 @@ async function fetchText(text, website, input) {
     }
   });
   console.log(`${website} > ${input}`);
-  return console.log(selector(data));
+  console.log(selector(data));
 }
 
 async function fetchURL(url, website, input) {
@@ -39,7 +39,7 @@ async function fetchURL(url, website, input) {
     }
   });
   console.log(`${website} > ${input}`);
-  return console.log(selector(data));
+  console.log(selector(data));
 }
 
 function catchError(website, input, { response: { status, statusText } }) {
@@ -60,10 +60,8 @@ async function main() {
     const fetchURLPromise = fetchWrapper(fetchURL, url, website, "url");
     return Promise.all([fetchTextPromise, fetchURLPromise]);
   });
+  console.log("summarize bot");
   await Promise.all(promises);
 }
 
-module.exports = {
-  main,
-  name: "summarize bot"
-};
+module.exports = main;

@@ -1,14 +1,9 @@
-const {
-  main: textAnalysis,
-  name: textAnalysisName
-} = require("./src/textAnalysis");
-const {
-  main: summarizeBot,
-  name: summarizeBotName
-} = require("./src/summarizeBot");
+const textAnalysis = require("./src/textAnalysis");
+const summarizeBot = require("./src/summarizeBot");
 
-console.log(textAnalysisName);
-textAnalysis();
+function main() {
+  textAnalysis();
+  summarizeBot();
+}
 
-console.log(summarizeBotName);
-summarizeBot();
+main();
