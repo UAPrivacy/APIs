@@ -19,7 +19,8 @@
     "license": "UNLICENSED",
     "dependencies": {
         "axios": "^0.18.0",
-        "node-summary": "^1.2.0"
+        "node-summary": "^1.2.0",
+        "request": "^2.88.0"
     },
     "private": true,
     "devDependencies": {
