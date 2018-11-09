@@ -1,83 +1,69 @@
-import axios from "axios";
-import { readFileSync } from "fs";
-import { join } from "path";
-import summary from "./summary";
+const axios = require("axios");
+const SAMPLE_DATA = require("./data");
+const { SUMMARIZEBOT } = require("../secrets.json");
 
-summary();
+const endpoint = "https://www.summarizebot.com/api/summarize";
 
-const SUMMARIZEBOT = "736c194ce5d840ddafebd2d46b43a839";
+const selector = data => data[0].summary.map(data => data.sentence);
 
-async function summarizeText(text) {
-  const endpoint = "https://www.summarizebot.com/api/summarize";
-  const blob = Buffer.from(text);
-  const { data, status } = await axios.post(endpoint, blob, {
+const PERCENTAGE = 8;
+const FILENAME = "#";
+
+async function fetchText(text, website, input) {
+  const { data } = await axios.post(endpoint, Buffer.from(text), {
     params: {
       apiKey: SUMMARIZEBOT,
-      size: 10,
-      keywords: 10,
-      fragments: 10,
+      size: PERCENTAGE,
+      keywords: 0,
+      fragments: 0,
       language: "English",
-      filename: "sampleText.txt"
+      filename: FILENAME
     },
     headers: {
       "Content-Type": "application/octet-stream"
     }
   });
-
-  if (status >= 400) {
-    throw Error(`status: ${status}`);
-  }
-  if (data.error) {
-    throw Error(data.error.message);
-  }
-  return data;
+  console.log(`${website} > ${input}`);
+  return console.log(selector(data));
 }
 
-async function summarizeURL(url) {
-  const endpoint = "https://www.summarizebot.com/api/summarize";
-  const { data, status } = await axios.get(endpoint, {
+async function fetchURL(url, website, input) {
+  const { data } = await axios.get(endpoint, {
     params: {
       apiKey: SUMMARIZEBOT,
-      size: 10,
-      keywords: 10,
-      fragments: 10,
+      size: PERCENTAGE,
+      keywords: 0,
+      fragments: 0,
       language: "English",
       url
     }
   });
-
-  if (status >= 400) {
-    throw Error(`status: ${status}`);
-  }
-  if (data.error) {
-    throw Error(data.error.message);
-  }
-  return data;
+  console.log(`${website} > ${input}`);
+  return console.log(selector(data));
 }
 
-const selector = data => data[0].summary.map(obj => obj.sentence);
+function catchError(website, input, { response: { status, statusText } }) {
+  console.log(`${website} > ${input}`);
+  console.error(status, statusText);
+}
 
-const fetch = (param, summarizer) => {
-  return new Promise((resolve, reject) => {
-    summarizer(param)
-      .then(data => resolve(selector(data)))
-      .catch(err => reject(err));
+function fetchWrapper(fetch, param, website, input) {
+  return fetch(param, website, input).catch(err =>
+    catchError(website, input, err)
+  );
+}
+
+async function main() {
+  const promises = SAMPLE_DATA.map(async ({ website, getText, url }) => {
+    const text = await getText;
+    const fetchTextPromise = fetchWrapper(fetchText, text, website, "text");
+    const fetchURLPromise = fetchWrapper(fetchURL, url, website, "url");
+    return Promise.all([fetchTextPromise, fetchURLPromise]);
   });
+  await Promise.all(promises);
+}
+
+module.exports = {
+  main,
+  name: "summarize bot"
 };
-// TODO test performance time difference bwteeen URLS and TEXT fetched and intergrations
-const init = async () => {
-  const url =
-    "https://www.starwoodhotels.com/preferredguest/legal/privacy.html";
-  const text = readFileSync(join(__dirname, "text.txt"), "utf8");
-  try {
-    const [summaryURL, summaryText] = await Promise.all([
-      fetch(text, summarizeText),
-      fetch(url, summarizeURL)
-    ]);
-    console.log(`summary from text: ${summaryURL}\n`);
-    console.log(`summary from URL: ${summaryText}`);
-  } catch (e) {
-    console.error(e);
-  }
-};
-init();
