@@ -60,7 +60,7 @@ async function main() {
     const fetchURLPromise = fetchWrapper(fetchURL, url, website, "url");
     return Promise.all([fetchTextPromise, fetchURLPromise]);
   });
-  console.log("summarize bot");
+
   await Promise.all(promises);
 }
 

@@ -1,37 +1,41 @@
-const fs = require("fs");
-const util = require("util");
 const nodeSummary = require("node-summary");
+const SAMPLE_DATA = require("./data");
 
-function fetchWithContent() {
-  const content = getText("sample.txt");
-  const title = "sample summaries";
-  nodeSummary.summarize(title, content, function(err, summary) {
-    if (err) console.error("Something went wrong!");
-    // console.log('Original Length ' + (title.length + content.length));
-    // console.log('Summary Length ' + summary.length);
-    console.log(
-      "Summary Ratio: " +
-        (100 - 100 * (summary.length / (title.length + content.length)))
-    );
+function fetchTextPromise(title, text, website, input) {
+  nodeSummary.summarize(title, text, function(err, summaries) {
+    if (err) logError(err, website, input);
+    else logResults(summaries);
   });
 }
 
-function fetchWithURL(url) {
-  nodeSummary.summarizeFromUrl(url, function(err, summary) {
+function fetchURLPromise(url, website, input) {
+  nodeSummary.summarizeFromUrl(url, function(err, summaries) {
     if (err) {
-      console.error(err);
+      logError(err, website, input);
     } else {
-      console.log(summary);
+      logResults(summaries);
     }
   });
 }
 
-fetchWithContent();
-fetchWithURL("https://policies.google.com/terms");
+function logError(error, website, input) {
+  console.log(`${website} > ${input}`);
+  console.log(error);
+}
 
-function main() {}
+function logResults(summaries, website, input) {
+  console.log(`${website} > ${input}`);
+  console.log(summaries);
+}
 
-module.exports = {
-  main,
-  name: "node summary"
-};
+async function main() {
+  const promises = SAMPLE_DATA.map(async ({ website, getText, url }) => {
+    const text = await getText;
+    const fetchText = fetchTextPromise(text, website, "text");
+    const fetchURL = fetchURLPromise(url, website, "url");
+    return Promise.all([fetchText, fetchURL]);
+  });
+  await Promise.all(promises);
+}
+
+module.exports = main;
