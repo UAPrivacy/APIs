@@ -2,15 +2,14 @@ const axios = require("axios");
 const SAMPLE_DATA = require("./data");
 const { SUMMARIZEBOT } = require("../secrets.json");
 
-const endpoint = "https://www.summarizebot.com/api/summarize";
-
-const selector = data => data[0].summary.map(data => data.sentence);
-
+const ENDPOINT = "https://www.summarizebot.com/api/summarize";
 const PERCENTAGE = 8;
 const FILENAME = "#";
 
+const selector = data => data[0].summary.map(data => data.sentence);
+
 async function fetchText(text, website, input) {
-  const { data } = await axios.post(endpoint, Buffer.from(text), {
+  const { data } = await axios.post(ENDPOINT, Buffer.from(text), {
     params: {
       apiKey: SUMMARIZEBOT,
       size: PERCENTAGE,
@@ -28,7 +27,7 @@ async function fetchText(text, website, input) {
 }
 
 async function fetchURL(url, website, input) {
-  const { data } = await axios.get(endpoint, {
+  const { data } = await axios.get(ENDPOINT, {
     params: {
       apiKey: SUMMARIZEBOT,
       size: PERCENTAGE,
@@ -64,4 +63,4 @@ async function main() {
   await Promise.all(promises);
 }
 
-module.exports = main;
+main();

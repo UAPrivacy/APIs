@@ -1,0 +1,47 @@
+twitter > url
+400 'BAD REQUEST'
+google > text
+[ 'Thanks for using our products and services (“Services”).',
+  'Additional terms will be available with the relevant Services, and those additional terms become part of your agreement with us if you use those Services.',
+  'Our Services are very diverse, so sometimes additional terms or product requirements (including age requirements) may apply.',
+  'GOOGLE TERMS OF SERVICE\nLast modified: October 25, 2017 (view archived versions)\n\nWelcome to Google!',
+  'If there is a conflict between these terms and the additional terms, the additional terms will control for that conflict.',
+  'Don’t misuse our Services.',
+  'The Services are provided by Google LLC (“Google”), located at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.',
+  'Using our Services\nYou must follow any policies made available to you within the Services.',
+  'By using our Services, you are agreeing to these terms.',
+  'We’ll post notice of modified additional terms in the applicable Service.',
+  'Our Services display some content that is not Google’s.',
+  'You are responsible for the activity that happens on or through your Google Account.' ]
+twitter > text
+[ 'All right, title, and interest in and to the Services (excluding Content provided by users) are and will remain the exclusive property of Twitter and its licensors.',
+  'Privacy\nOur Privacy Policy (https://www.twitter.com/privacy) describes how we handle the information you provide to us when you use our Services.',
+  'Twitter Terms of Service\nIf you live in the United States\nThese Terms of Service (“Terms”) govern your access to and use of our services, including our various websites, SMS, APIs, email notifications, applications, buttons, widgets, ads, commerce services, and our other covered services  (https://support.twitter.com/articles/20172501) that link to these Terms (collectively, the “Services”), and any information, text, links, graphics, photos, audio, videos, or other materials or arrangements of materials uploaded, downloaded or appearing on the Services (collectively referred to as “Content”).',
+  'If you are accepting these Terms and using the Services on behalf of a company, organization, government, or other legal entity, you represent and warrant that you are authorized to do so and have the authority to bind such entity to these Terms, in which case the words “you” and “your” as used in these Terms shall refer to such entity.',
+  'By using the Services you agree to be bound by these Terms.',
+  'You understand that through your use of the Services you consent to the collection and use (as set forth in the Privacy Policy) of this information, including the transfer of this information to the United States, Ireland, and/or other countries for storage, processing and use by Twitter and its affiliates.',
+  'You should only provide Content that you are comfortable sharing with others.',
+  'In any case, you must be at least 13 years old, or in the case of Periscope 16 years old, to use the Services.',
+  '1. Who May Use the Services\nYou may use the Services only if you agree to form a binding contract with Twitter and are not a person barred from receiving services under the laws of the applicable jurisdiction.',
+  'All Content is the sole responsibility of the person who originated such Content.',
+  'Content on the Services\nYou are responsible for your use of the Services and for any Content you provide, including compliance with applicable laws, rules, and regulations.',
+  'These Terms are an agreement between you and Twitter, Inc., 1355 Market Street, Suite 900, San Francisco, CA 94103 U.S.A.' ]
+google > url
+400 'BAD REQUEST'
+facebook > text
+[ 'To the extent permitted by law, we also DISCLAIM ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.',
+  'Help you discover content, products, and services that may interest you:\nWe show you ads, offers, and other sponsored content to help you discover content, products, and services that are offered by the many businesses and organizations that use Facebook and other Facebook Products.',
+  'These Terms govern your use of Facebook and the products, features, apps, services, technologies, and software we offer (the Facebook Products or Products), except where we expressly state that separate terms (and not these) apply.',
+  'Connect you with people and organizations you care about:\nWe help you find and connect with people, groups, businesses, organizations, and others that matter to you across the Facebook Products you use.',
+  'To the extent any supplemental terms conflict with these Terms, the supplemental terms shall govern to the extent of the conflict.',
+  'Our Services\nOur mission is to give people the power to build community and bring the world closer together.',
+  'Terms of Service\n\n\nWelcome to Facebook!',
+  'Empower you to express yourself and communicate about what matters to you:\nThere are many ways to express yourself on Facebook and to communicate with friends, family, and others about what matters to you - for example, sharing status updates, photos, videos, and stories across the Facebook Products you use, sending messages to a friend or several people, creating events or groups, or adding content to your profile.',
+  'Our partners pay us to show their content to you, and we design our services so that the sponsored content you see is as relevant and useful to you as everything else you see on our Products.',
+  "To help advance this mission, we provide the Products and services described below to you:\nProvide a personalized experience for you:\nYour experience on Facebook is unlike anyone else's: from the posts, stories, events, ads, and other content you see in News Feed or our video platform to the Pages you follow and other features you might use, such as Trending, Marketplace, and search.",
+  'Music Guidelines: These guidelines outline the policies that apply if you post or share content containing music on Facebook.',
+  'We use the data we have to make suggestions for you and others - for example, groups to join, events to attend, Pages to follow or send a message to, shows to watch, and people you may want to become friends with.' ]
+facebook > url
+[ '1. Who can use Facebook\n\nUse the same name that you use in everyday life.',
+  'Create only one account (your own) and use your timeline for personal purposes.',
+  'Not share your password, give access to your Facebook account to others, or transfer your account to anyone else (without our permission).' ]

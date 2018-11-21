@@ -47,4 +47,4 @@ async function main() {
   await Promise.all(promises);
 }
 
-module.exports = main;
+main();

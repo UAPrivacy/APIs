@@ -6,3 +6,4 @@ dist/
 **/*.csv
 **/*.zip
 sandbox/
+secrets.json
