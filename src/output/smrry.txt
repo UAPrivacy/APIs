@@ -1,0 +1,96 @@
+twitter > url
+Twitter Terms Of Service
+Please review the Twitter Rules, which are part of the User Agreement and outline what is prohibited on the Services.
+
+You may use the Services only in compliance with these Terms and all applicable laws, rules and regulations.
+
+We may stop providing the Services or any features within the Services to you or to users generally.
+
+In consideration for Twitter granting you access to and use of the Services, you agree that Twitter and its third-party providers and partners may place advertising on the Services or in connection with the display of Content or information from the Services whether submitted by you or others.
+
+If you want to reproduce, modify, create derivative works, distribute, sell, transfer, publicly display, publicly perform, transmit, or otherwise use the Services or Content on the Services, you must use the interfaces and instructions we provide, except as permitted through the Twitter Services, these Terms, or the terms provided on dev.
+
+If you use advertising features of the Services, you must agree to our Twitter Master Services Agreement.
+
+If you use commerce features of the Services that require credit or debit card information, such as our Buy Now feature, you agree to our Twitter Commerce Terms.
+
+
+google > url
+Google Terms Of Service
+Additional terms will be available with the relevant Services, and those additional terms become part of your agreement with us if you use those Services.
+
+If you have a Google Account, we may display your Profile name, Profile photo, and actions you take on Google or on third-party applications connected to your Google Account in our Services, including displaying in ads and other commercial contexts.
+
+If you are using the Services for a personal purpose, then nothing in these terms or any additional terms limits any consumer legal rights which may not be waived by contract.
+
+We may modify these terms or any additional terms that apply to a Service to, for example, reflect changes to the law or changes to our Services.
+
+We'll post notice of modified additional terms in the applicable Service.
+
+If you do not agree to the modified terms for a Service, you should discontinue your use of that Service.
+
+Otherwise, all claims arising out of or relating to these terms or the services will be litigated exclusively in the federal or state courts of Santa Clara County, California, USA, and you and Google consent to personal jurisdiction in those courts.
+
+
+facebook > url
+Date of Last Revision: January 30, 2015.Statement of Rights and Responsibilities This Statement of Rights and Responsibilities derives from the Facebook Principles, and is our terms of service that governs our relationship with users and others who interact with Facebook, as well as Facebook brands, products and services, which we call the "Facebook Services" or "Services".
+
+You will not do anything that could disable, overburden, or impair the proper working or appearance of Facebook, such as a denial of service attack or interference with page rendering or other Facebook functionality.
+
+Although we provide rules for user conduct, we do not control or direct users' actions on Facebook and are not responsible for the content or information users transmit or share on Facebook.
+
+We are not responsible for any offensive, inappropriate, obscene, unlawful or otherwise objectionable content or information you may encounter on Facebook.
+
+References to "Us," "We," and "Our" mean either Facebook, Inc. or Facebook Ireland Limited, as appropriate.
+
+Facebook Brand Resources: These guidelines outline the policies that apply to use of Facebook trademarks, logos and screenshots.
+
+Community Standards: These guidelines outline our expectations regarding the content you post to Facebook and your activity on Facebook.
+
+
+google > text
+GOOGLE TERMS OF SERVICE Last modified: October 25, 2017 Welcome to Google! Thanks for using our products and services.
+
+Additional terms will be available with the relevant Services, and those additional terms become part of your agreement with us if you use those Services.
+
+Some Services may offer you ways to access and remove content that has been provided to that Service.
+
+In some of our Services, there are terms or settings that narrow the scope of our use of the content submitted in those Services.
+
+Business uses of our Services If you are using our Services on behalf of a business, that business accepts these terms.
+
+About these Terms We may modify these terms or any additional terms that apply to a Service to, for example, reflect changes to the law or changes to our Services.
+
+If you do not agree to the modified terms for a Service, you should discontinue your use of that Service.
+
+
+facebook > text
+Terms of Service Welcome to Facebook! These Terms govern your use of Facebook and the products, features, apps, services, technologies, and software we offer, except where we expressly state that separate terms apply.
+
+Empower you to express yourself and communicate about what matters to you: There are many ways to express yourself on Facebook and to communicate with friends, family, and others about what matters to you - for example, sharing status updates, photos, videos, and stories across the Facebook Products you use, sending messages to a friend or several people, creating events or groups, or adding content to your profile.
+
+Help you discover content, products, and services that may interest you: We show you ads, offers, and other sponsored content to help you discover content, products, and services that are offered by the many businesses and organizations that use Facebook and other Facebook Products.
+
+We use data about the people you engage with on Facebook to make it easier for you to connect with them on Instagram or Messenger, and we enable you to communicate with a business you follow on Facebook through Messenger.
+
+What you can share and do on Facebook We want people to use Facebook to express themselves and to share content that is important to them, but not at the expense of the safety and well-being of others or the integrity of our community.
+
+The permissions you give us We need certain permissions from you to provide our services: Permission to use content you create and share: You own the content you create and share on Facebook and the other Facebook Products you use, and nothing in these Terms takes away the rights you have to your own content.
+
+Facebook Brand Resources: These guidelines outline the policies that apply to use of Facebook trademarks, logos, and screenshots.
+
+
+twitter > text
+Twitter Terms of Service If you live in the United States These Terms of Service govern your access to and use of our services, including our various websites, SMS, APIs, email notifications, applications, buttons, widgets, ads, commerce services, and our other covered services that link to these Terms, and any information, text, links, graphics, photos, audio, videos, or other materials or arrangements of materials uploaded, downloaded or appearing on the Services.
+
+Who May Use the Services You may use the Services only if you agree to form a binding contract with Twitter and are not a person barred from receiving services under the laws of the applicable jurisdiction.
+
+Content on the Services You are responsible for your use of the Services and for any Content you provide, including compliance with applicable laws, rules, and regulations.
+
+We do not endorse, support, represent or guarantee the completeness, truthfulness, accuracy, or reliability of any Content or communications posted via the Services or endorse any opinions expressed via the Services.
+
+In consideration for Twitter granting you access to and use of the Services, you agree that Twitter and its third-party providers and partners may place advertising on the Services or in connection with the display of Content or information from the Services whether submitted by you or others.
+
+If you want to reproduce, modify, create derivative works, distribute, sell, transfer, publicly display, publicly perform, transmit, or otherwise use the Services or Content on the Services, you must use the interfaces and instructions we provide, except as permitted through the Twitter Services, these Terms, or the terms provided on dev.
+
+We may suspend or terminate your account or cease providing you with all or part of the Services at any time for any or no reason, including, but not limited to, if we reasonably believe: you have violated these Terms or the Twitter Rules or Periscope Community Guidelines, you create risk or possible legal exposure for us; your account should be removed due to prolonged inactivity; or our provision of the Services to you is no longer commercially viable.

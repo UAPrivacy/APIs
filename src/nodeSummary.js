@@ -4,17 +4,14 @@ const SAMPLE_DATA = require("./data");
 function fetchTextPromise(title, text, website, input) {
   nodeSummary.summarize(title, text, function(err, summaries) {
     if (err) logError(err, website, input);
-    else logResults(summaries);
+    else logResults(summaries, website, input);
   });
 }
 
 function fetchURLPromise(url, website, input) {
   nodeSummary.summarizeFromUrl(url, function(err, summaries) {
-    if (err) {
-      logError(err, website, input);
-    } else {
-      logResults(summaries);
-    }
+    if (err) logError(err, website, input);
+    else logResults(summaries, website, input);
   });
 }
 

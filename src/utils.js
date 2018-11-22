@@ -3,4 +3,6 @@ const createQueryString = params =>
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(params[key]))
     .join("&");
 
-export { createQueryString };
+module.exports = {
+  createQueryString
+};
