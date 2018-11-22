@@ -28,7 +28,7 @@ function logResults(summaries, website, input) {
 async function main() {
   const promises = SAMPLE_DATA.map(async ({ website, getText, url }) => {
     const text = await getText;
-    const fetchText = fetchTextPromise(text, website, "text");
+    const fetchText = fetchTextPromise("", text, website, "text");
     const fetchURL = fetchURLPromise(url, website, "url");
     return Promise.all([fetchText, fetchURL]);
   });
