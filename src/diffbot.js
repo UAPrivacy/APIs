@@ -19,10 +19,10 @@ async function fetchText(url) {
 
 async function main() {
   for (const { website, url } of SAMPLE_DATA) {
-    const text = await fetchText(url);
-    console.log(`${website} > data \n`);
-    console.log(text);
+    console.log(`${website} > data`);
+    const text = await fetchText(url, website);
+    console.log(text + "\n");
   }
 }
 
-main();
+(async () => await main())();

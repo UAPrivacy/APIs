@@ -1,27 +1,36 @@
+const unirest = require("unirest");
 const SAMPLE_DATA = require("./data");
-const { SMMRY } = require("../secrets.json");
+const { createQueryString } = require("./utils");
+const { MASHAPE } = require("../secrets.json");
 
-function fetchSummaries() {
-  unirest
-    .get(
-      "https://meaningcloud-summarization-v1.p.mashape.com/summarization-1.0?sentences=5&url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FStar_Trek"
-    )
-    .header(
-      "X-Mashape-Key",
-      "n4uDm4302GmshrAjrxTiwEO2gBETp1izP1Ljsn8vkEjdUbSqia"
-    )
-    .header("Accept", "application/json")
-    .end(function(result) {
-      console.log(result.status, result.headers, result.body);
-    });
+const NUM_SENTENCES = 5;
+
+function fetchSummaries(url) {
+  const options = {
+    sentences: NUM_SENTENCES,
+    url
+  };
+  return new Promise(resolve => {
+    unirest
+      .get(
+        `https://meaningcloud-summarization-v1.p.mashape.com/summarization-1.0?${createQueryString(
+          options
+        )}`
+      )
+      .header("X-Mashape-Key", MASHAPE)
+      .header("Accept", "application/json")
+      .end(function(result) {
+        resolve(result.body.summary + "\n");
+      });
+  });
 }
 
 async function main() {
-  const promises = SAMPLE_DATA.map(async ({ website, getText, url }) => {
-    const text = await getText;
-    const fetchTextPromise = fetchSummaries(fetch, text, website, "text");
-    const fetchURLPromise = fetchSummaries(fetch, url, website, "url");
-    return Promise.all([fetchTextPromise, fetchURLPromise]);
-  });
-  await Promise.all(promises);
+  for (const { website, url } of SAMPLE_DATA) {
+    console.log(`${website} > url`);
+    const text = await fetchSummaries(url, website);
+    console.log(text);
+  }
 }
+
+(async () => await main())();

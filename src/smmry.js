@@ -3,49 +3,32 @@ const SAMPLE_DATA = require("./data");
 const { SMMRY } = require("../secrets.json");
 const { createQueryString } = require("./utils");
 
-// A limit of 100 free API requests can be made daily, and each request must be at least 10 seconds apart.
 const ENDPOINT_URL = "http://api.smmry.com";
 
-const NUM_SENTENCES = 7;
-
-function fetch(url) {
-  const OPTIONS = {
+function fetchSummaries(url, website) {
+  const options = {
     SM_API_KEY: SMMRY,
-    SM_URL: url,
-    SM_LENGTH: NUM_SENTENCES,
-    SM_KEYWORD_COUNT: 0,
-    SM_WITH_BREAK: "\n",
-    SM_IGNORE_LENGTH: true
+    SM_URL: url
   };
   axios
-    .post(`${ENDPOINT_URL}/${createQueryString(OPTIONS)}`, {
+    .post(`${ENDPOINT_URL}?${createQueryString(options)}`, {
       params: {
-        headers: { Expect: "" }
+        headers: { Expect: "100-continue" }
       }
     })
-    .then(res => console.log(res.data))
-    .catch(err => console.error(err));
+    .then(res => {
+      console.log(`${website} > url`);
+      return console.log(res.data.sm_api_content + "\n");
+    })
+    .catch(err => console.error(err.response));
 }
 
-function catchError(website, input, { response: { status, statusText } }) {
-  console.log(`${website} > ${input}`);
-  console.error(status, statusText);
+function main() {
+  for (const { url, website } of SAMPLE_DATA) {
+    setTimeout(() => {
+      fetchSummaries(url, website);
+    }, 1000 * 10);
+  }
 }
 
-function fetchWrapper(fetch, param, website, input) {
-  return fetch(param, website, input).catch(err =>
-    catchError(website, input, err)
-  );
-}
-
-async function main() {
-  const promises = SAMPLE_DATA.map(async ({ website, getText, url }) => {
-    const text = await getText;
-    const fetchTextPromise = fetchWrapper(fetch, text, website, "text");
-    const fetchURLPromise = fetchWrapper(fetch, url, website, "url");
-    return Promise.all([fetchTextPromise, fetchURLPromise]);
-  });
-  await Promise.all(promises);
-}
-
-module.exports = main;
+(async () => await main())();

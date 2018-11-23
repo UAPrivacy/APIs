@@ -7,6 +7,7 @@ const readFile = util.promisify(fs.readFile);
 function read(filename) {
   return readFile(join(__dirname, "textFiles", filename), "utf-8");
 }
+
 const getTwitterText = read("twitter.txt");
 const getGoogleText = read("google.txt");
 const getFacebookText = read("facebook.txt");
