@@ -20,7 +20,7 @@ function fetchSummaries(url) {
       .header("X-Mashape-Key", MASHAPE)
       .header("Accept", "application/json")
       .end(function(result) {
-        resolve(result.body.summary + "\n");
+        resolve(result.body.summary);
       });
   });
 }
@@ -29,7 +29,8 @@ async function main() {
   for (const { website, url } of SAMPLE_DATA) {
     console.log(`${website} > url`);
     const text = await fetchSummaries(url, website);
-    console.log(text);
+
+    console.log(text, "\n");
   }
 }
 
