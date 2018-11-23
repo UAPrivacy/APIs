@@ -29,7 +29,6 @@ async function main() {
   for (const { website, url } of SAMPLE_DATA) {
     console.log(`${website} > url`);
     const text = await fetchSummaries(url, website);
-
     console.log(text, "\n");
   }
 }
