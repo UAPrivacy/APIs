@@ -11,11 +11,7 @@ function fetchSummaries(url, website) {
     SM_URL: url
   };
   axios
-    .post(`${ENDPOINT_URL}?${createQueryString(options)}`, {
-      params: {
-        headers: { Expect: "100-continue" }
-      }
-    })
+    .post(`${ENDPOINT_URL}?${createQueryString(options)}`)
     .then(res => {
       console.log(`${website} > url`);
       return console.log(res.data.sm_api_content + "\n");
